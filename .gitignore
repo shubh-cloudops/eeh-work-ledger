@@ -1,0 +1,10 @@
+# Real work data never goes in the repo
+work-ledger.md
+!examples/work-ledger.md
+*.html
+!examples/*.html
+*.csv
+v1/
+__pycache__/
+.claude/settings.local.json
+.ruff_cache/
