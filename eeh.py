@@ -205,7 +205,9 @@ def cmd_report(a):
     title = f"Work &amp; Evidence Report: {e(meta.get('Owner', ''))}"
     req_html = (f"<p><b>Requested by:</b> {e(req['type'])} &nbsp; <b>Purpose:</b> {e(req['detail'])} "
                 f"&nbsp; <b>Request ref:</b> {e(req['id'])} {link(req['evidence'])}</p>") if req else ""
-    doc = f"""<!doctype html><html><head><meta charset="utf-8"><title>Work Report</title>
+    doc = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Work and evidence report: logged hours, timeline with evidence links and ledger integrity check.">
+<meta name="generator" content="EEH Work Ledger"><title>Work &amp; Evidence Report: {e(meta.get('Owner', ''))}, {e(a.frm)} to {e(a.to)}</title>
 <style>body{{font:14px/1.5 Segoe UI,Arial,sans-serif;max-width:1100px;margin:24px auto;padding:0 16px;color:#1b1b1b}}
 h1{{font-size:22px;margin:0}}h2{{font-size:16px;border-bottom:2px solid #0b5cad;padding-bottom:4px;margin-top:28px}}
 .kpi{{display:flex;gap:12px;flex-wrap:wrap}}.kpi div{{border:1px solid #d0d7de;border-radius:6px;padding:10px 14px;min-width:150px}}
