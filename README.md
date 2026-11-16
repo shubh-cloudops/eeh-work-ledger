@@ -1,8 +1,21 @@
-# EEH v2: Claude work-proof kit for IT employees
+# EEH Work Ledger: Claude Code Skill for Work Logs, Time Tracking and Timesheets
 
-![ci](https://github.com/shubh-cloudops/eeh-work-ledger/actions/workflows/ci.yml/badge.svg)
+![CI tests on Windows and Linux](https://github.com/shubh-cloudops/eeh-work-ledger/actions/workflows/ci.yml/badge.svg) ![MIT license](https://img.shields.io/badge/license-MIT-blue.svg) ![Python 3 standard library](https://img.shields.io/badge/python-3-blue.svg)
 
-A consent-based personal work log, time tracker and evidence kit. It tracks **your own** activity only.
+**EEH Work Ledger is an open-source Claude Code skill that keeps a daily work log, tracks your time and builds timesheets and proof-of-work reports for IT employees.** It pulls evidence from Microsoft Teams, Outlook and Zoho Projects into one tamper-evident work ledger. It then generates HTML reports for performance appraisals, manager data requests and audits. Everything is consent-based: it tracks **your own** activity only and is not employee monitoring software.
+
+## Features
+
+- **Daily work log in one line:** `l: standup 10:00-10:15 MTG <teams link>` adds a timestamped, evidence-linked entry.
+- **Time tracking and timesheets:** end-of-day totals, gap detection and CSV timesheet export for Zoho Projects timelogs.
+- **Tamper-evident audit trail:** an append-only Markdown ledger with a SHA-256 hash chain. `python eeh.py verify` flags edited rows.
+- **Proof-of-work and appraisal reports:** professional HTML reports with a timeline, evidence links, hours by project and an integrity check.
+- **Manager data requests:** a project manager, team lead or HR sends a request, and the report you share is logged with its hash.
+- **Microsoft Teams, Outlook and Zoho Projects integration** through Claude MCP connectors.
+- **Superpowers plugin support** for developers, DevOps, QA and SRE workflows.
+- **Low token usage:** a Python script does the calculations and formatting, so Claude only writes short commands.
+
+## How it works
 
 ```mermaid
 flowchart LR
@@ -18,7 +31,7 @@ flowchart LR
 
 ## Sample report
 
-![Sample work and evidence report](docs/report.png)
+![Sample proof-of-work HTML report: hours by project, timeline with evidence links and integrity check](docs/report.png)
 
 ## Design decisions
 
@@ -135,3 +148,24 @@ Send the employee the block in `request-template.md`. The employee types `req <w
 2. claude.ai > Settings > Connectors: disconnect Microsoft 365 and Zoho Projects.
 3. Delete `CLAUDE.md`, `eeh.py` and `.claude` from the folder. Keep or delete `work-ledger.md` and reports according to company retention policy.
 4. Optional: `winget uninstall Python.Python.3.12`.
+
+## FAQ
+
+**What is EEH Work Ledger?**
+It's a Claude Code skill and a Python script that together keep a verifiable work log, track your time and generate timesheets and work reports for IT employees.
+
+**Is it employee monitoring software?**
+No. It tracks only your own activity, with your consent, and never collects colleagues' data. It is a personal work-evidence tool, not workplace surveillance.
+
+**Does it work with Microsoft Teams and Zoho?**
+Yes. It reads your own Teams messages and meetings and your Outlook mail through the Microsoft 365 connector, and your Zoho Projects tasks and timelogs through the Zoho Projects connector.
+
+**Can my manager verify the report?**
+Yes. Each report has a SHA-256 hash that is also recorded in your ledger. `python eeh.py verify` shows whether any ledger row was changed after it was written.
+
+**Does it run on Windows?**
+Yes. It needs only Python 3 and its standard library, and CI tests it on Windows and Linux on every push.
+
+**How much does it cost?**
+The kit is free and MIT-licensed. You need a Claude plan that includes Claude Code.
+
