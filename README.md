@@ -4,6 +4,8 @@
 
 **EEH Work Ledger is an open-source Claude Code skill that keeps a daily work log, tracks your time and builds timesheets and proof-of-work reports for IT employees.** It pulls evidence from Microsoft Teams, Outlook and Zoho Projects into one tamper-evident work ledger. It then generates HTML reports for performance appraisals, manager data requests and audits. Everything is consent-based: it tracks **your own** activity only and is not employee monitoring software.
 
+Also on the Agensi marketplace: [EEH Work Ledger on Agensi](https://agensi.io/skills/eeh-work-ledger).
+
 ## Features
 
 - **Daily work log in one line:** `l: standup 10:00-10:15 MTG <teams link>` adds a timestamped, evidence-linked entry.
